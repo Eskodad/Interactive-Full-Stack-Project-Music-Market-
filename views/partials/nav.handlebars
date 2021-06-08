@@ -1,0 +1,43 @@
+<nav id="nav-container grid-container">
+    <div class="grid-x">
+        <div class="cell large-10 medium-9 small-8">
+            <ul class="menu dropdown navbarLinks" data-dropdown-menu>
+                <li class="menu-text"><div id="homepage-nav">Music Market</div></li>
+                <li>
+                    <div id="browse-nav">Browse</div>
+                    <ul class="menu">
+                        {{#each categories as |category|}}
+                        <a href="/browse?category_id={{category.id}}"><li>{{category.category_name}}</li></a>
+                        {{/each}}
+                    </ul>
+                </li>
+                {{!-- <li>Deals</li> --}}
+                <li><div id="contact-nav">Contact</div></li>
+            </ul>
+        </div>
+        <script src="../javascript/nav.js"></script>
+        <div class="cell large-2 medium-3 small-4">
+            <ul class="menu profileLink">
+                {{#if loggedIn}}
+                <li>
+                    <button type="button" class="button" data-toggle="offCanvasRight1">View Cart</button>
+                    <div class="off-canvas position-right" id="offCanvasRight1" data-off-canvas>
+                        <div class="off-canvas-content" data-off-canvas-content>
+                            <h2>Cart</h2>
+                            <p>Your Items: </p>
+                            <div id="cart">
+                                
+                            </div>
+                            <div class="total"></div>
+                            <input type="checkbox" name="terms" id="terms">
+                            <label for="terms">Terms & Conditions</label>
+                            <div class="paypalContainerSect"></div>
+                        </div>
+                    </div>
+                </li>
+                {{/if}}
+                <li>Profile</li>
+            </ul>
+        </div>
+    </div>
+</nav>
